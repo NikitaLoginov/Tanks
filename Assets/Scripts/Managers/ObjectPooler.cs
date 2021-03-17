@@ -5,53 +5,46 @@ public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
     //Small projectiles
+    [SerializeField] private List<GameObject> smallProjectilesToPool;
+    [SerializeField] private int amountOfSmallProjectilesToPool;
     private List<GameObject> _pooledSmallProjectiles;
-    public GameObject smallProjectilesToPool;
-    public int amountOfSmallProjectilesToPool;
     
     //Medium projectiles
+    [SerializeField] private List<GameObject> mediumProjectilesToPool;
+    [SerializeField] private int amountOfMediumProjectilesToPool;
     private List<GameObject> _pooledMediumProjectiles;
-    public GameObject mediumProjectilesToPool;
-    public int amountOfMediumProjectilesToPool;
     
     //Enemies
+    [SerializeField] private List<GameObject> enemyTankToPool;
+    [SerializeField] private int amountOfEnemiesToPool;
     private List<GameObject> _pooledEnemies;
-    public GameObject lightEnemyTankToPool;
-    public GameObject heavyEnemyTankToPool;
-    public int amountOfEnemiesToPool;
 
     private void Awake()
     {
         Instance = this;
+        
+        _pooledSmallProjectiles = new List<GameObject>();
+        _pooledMediumProjectiles = new List<GameObject>();
+        _pooledEnemies = new List<GameObject>();
     }
 
     private void Start()
     {
-        _pooledSmallProjectiles = new List<GameObject>();
-        for (int i = 0; i < amountOfSmallProjectilesToPool; i++)
-        {
-            GameObject proj = (GameObject)Instantiate(smallProjectilesToPool, this.transform, true);
-            proj.SetActive(false);
-            _pooledSmallProjectiles.Add(proj);
-        }
-        
-        _pooledMediumProjectiles = new List<GameObject>();
-        for (int i = 0; i < amountOfMediumProjectilesToPool; i++)
-        {
-            GameObject proj = (GameObject)Instantiate(mediumProjectilesToPool, this.transform, true);
-            proj.SetActive(false);
-            _pooledMediumProjectiles.Add(proj);
-        }
+        AddObjectsToPool(smallProjectilesToPool, amountOfSmallProjectilesToPool,_pooledSmallProjectiles);
+        AddObjectsToPool(mediumProjectilesToPool, amountOfMediumProjectilesToPool,_pooledMediumProjectiles);
+        AddObjectsToPool(enemyTankToPool, amountOfEnemiesToPool, _pooledEnemies);
+    }
 
-        _pooledEnemies = new List<GameObject>();
-        for (int i = 0; i < amountOfEnemiesToPool; i++)
+    private void AddObjectsToPool(List<GameObject> objToPool, int amount, List<GameObject> pooledObj)
+    {
+        for (int i = 0; i < amount; i++)
         {
-            GameObject lightTank = Instantiate(lightEnemyTankToPool, this.transform, true);
-            GameObject heavyTank = Instantiate(heavyEnemyTankToPool, this.transform, true);
-            lightTank.SetActive(false);
-            heavyTank.SetActive(false);
-            _pooledEnemies.Add(lightTank);
-            _pooledEnemies.Add(heavyTank);
+            for (int j = 0; j < objToPool.Count; j++)
+            {
+                GameObject obj = (GameObject) Instantiate(objToPool[j], this.transform, true);
+                obj.SetActive(false);
+                pooledObj.Add(obj);
+            }
         }
     }
 

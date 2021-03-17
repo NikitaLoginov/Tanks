@@ -148,7 +148,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1384485822}
   - {fileID: 1199981094}
   - {fileID: 1612784335}
   - {fileID: 945500729}
@@ -1862,7 +1861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 157186762}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -2295,7 +2294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 157186762}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901131340
 GameObject:
@@ -2592,7 +2591,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 157186762}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1139690917
 GameObject:
@@ -2755,7 +2754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 157186762}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1220067211
 GameObject:
@@ -3092,16 +3091,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07acc29be0ac83e40b62239a7ff64924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallProjectilesToPool: {fileID: 9123853479868627939, guid: ec2f08171c3671c4dbc3c18bce83a59d,
-    type: 3}
+  smallProjectilesToPool:
+  - {fileID: 9123853479868627939, guid: ec2f08171c3671c4dbc3c18bce83a59d, type: 3}
   amountOfSmallProjectilesToPool: 20
-  mediumProjectilesToPool: {fileID: 3360761918249005567, guid: 5c29cd9f32cc74a4d8cfebf96ff02c7f,
-    type: 3}
+  mediumProjectilesToPool:
+  - {fileID: 3360761918249005567, guid: 5c29cd9f32cc74a4d8cfebf96ff02c7f, type: 3}
   amountOfMediumProjectilesToPool: 20
-  lightEnemyTankToPool: {fileID: 7581263519781055050, guid: fdd1abeb30cf1a94f9aba025013a2a41,
-    type: 3}
-  heavyEnemyTankToPool: {fileID: 8504144663615557334, guid: d9753618685e9f24ba95583bf1136cee,
-    type: 3}
+  enemyTankToPool:
+  - {fileID: 7581263519781055050, guid: fdd1abeb30cf1a94f9aba025013a2a41, type: 3}
+  - {fileID: 8504144663615557334, guid: d9753618685e9f24ba95583bf1136cee, type: 3}
   amountOfEnemiesToPool: 5
 --- !u!4 &1333941801
 Transform:
@@ -3145,8 +3143,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 157186762}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1384485823
 MonoBehaviour:
@@ -3364,7 +3362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 157186762}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493245600
 GameObject:
@@ -3726,7 +3724,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 157186762}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628359835
 GameObject:
